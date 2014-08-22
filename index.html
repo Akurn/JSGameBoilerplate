@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>JS Game Boilerplate</title>
+        <meta name="description" content="">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon" href="apple-touch-icon-precomposed.png">
+
+        <link rel="stylesheet" href="lib/css/normalize.min.css">
+        <style>
+            html, body {margin: 0; padding: 0;}
+            canvas {float: left;}
+            #interface {display: none;}
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+        <canvas id="game"></canvas>
+        <div id="interface"></div>
+
+        <script src="game/common.functions.js"></script>
+        <script src="game/class.spritewebkit.js"></script>
+        <script src="game/akurn.gamebp.js"></script>
+    </body>
+</html>
