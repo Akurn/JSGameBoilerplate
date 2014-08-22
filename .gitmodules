@@ -1,0 +1,3 @@
+[submodule "lib/spritewebkit"]
+	path = lib/spritewebkit
+	url = https://github.com/Akurn/WebSpriteAnimationKit
