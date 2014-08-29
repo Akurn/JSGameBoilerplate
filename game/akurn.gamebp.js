@@ -2,10 +2,10 @@
 var debug = (location.search.indexOf('debug') > 0) ? true : false;
 (function(){
     //global
-    var canvas;
-    var ctx;
-    var timelast;
-    var dt;
+    var canvas,
+        ctx,
+        timelast,
+        dt;
 
     //settings
 
@@ -91,9 +91,9 @@ var debug = (location.search.indexOf('debug') > 0) ? true : false;
         this.color = o.color || 'rgba(0, 0, 0, 1)';
         this.type = o.type || 0;
         this.health = o.health || 0;
-    }
+    };
     object.prototype.update = function(d){
-        dt = d || dt || 1;
+        var delta = d || dt || 1;
 
         this.x += this.vx;
         this.y += this.vy;
