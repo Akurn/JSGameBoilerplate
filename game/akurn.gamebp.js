@@ -3,7 +3,7 @@ var debug = (location.search.indexOf('debug') > 0) ? true : false;
 (function(){
     //global
     var canvas,
-        ctx,
+        context,
         timelast,
         dt;
 
@@ -15,14 +15,14 @@ var debug = (location.search.indexOf('debug') > 0) ? true : false;
     window.onload = function(){ 
         //setup objects once
         canvas = document.getElementById('game');
-        ctx = canvas.getContext('2d');
+        context = canvas.getContext('2d');
         onresize();
 
         /***** START NEW ROUND *****/
 
         /***** SETUP STAGE *****/
         imgFlower = new Sprite({
-            context: ctx,
+            context: context,
             image: loadImage('game/sprites/deco-flower-sprite.png'),
             fps: 12,
             width: 46,
@@ -59,16 +59,16 @@ var debug = (location.search.indexOf('debug') > 0) ? true : false;
         } else {
 
             //clear frame
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            context.clearRect(0, 0, canvas.width, canvas.height);
 
             //UPDATE
             imgFlower.y = canvas.height - 32;
 
             //RENDER
-            ctx.fillStyle="#45889e";
-            ctx.fillRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle="#000";
-            ctx.fillRect(canvas.width/2-100,canvas.height/2-50,200,100);
+            context.fillStyle="#45889e";
+            context.fillRect(0,0,canvas.width,canvas.height);
+            context.fillStyle="#000";
+            context.fillRect(canvas.width/2-100,canvas.height/2-50,200,100);
 
             imgFlower.render();
 
@@ -79,7 +79,7 @@ var debug = (location.search.indexOf('debug') > 0) ? true : false;
     /***** CLASSES *****/
     function object(op) {
         var o = op || {};
-        this.ctx = o.ctx || ctx;
+        this.ctx = o.ctx || context;
         this.x = o.x || 0;
         this.y = o.y || 0;
         this.vx = o.vx || 0;
@@ -98,8 +98,8 @@ var debug = (location.search.indexOf('debug') > 0) ? true : false;
         this.x += this.vx;
         this.y += this.vy;
     };
-    object.prototype.render = function(ct){
-        var ctx = ct || this.ctx || false;
+    object.prototype.render = function(ctx){
+        ctx = ctx || this.ctx || context || false;
 
         if (ctx) {
             ctx.save();
